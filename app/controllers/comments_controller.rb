@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create! body: params[:comment][:body], post: @post
+    CommentsChannel.broadcast_to(@post, @comment)
   end
 
   private
