@@ -1,6 +1,14 @@
 <h1><%= @post.title %></h1>
 
-<% if @post.comments.any? %>
-  <h2>Comments</h2>
-  <%= render @post.comments %>
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h3>Add a comment </h3>
+<%= form_for [@post, @post.comments.build] do |f| %>
+  <div>
+  <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
 <% end %>
