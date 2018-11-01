@@ -1,0 +1,6 @@
+<h1><%= @post.title %></h1>
+
+<% if @post.comments.any? %>
+  <h2>Comments</h2>
+  <%= render @post.comments %>
+<% end %>
